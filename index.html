@@ -9,6 +9,8 @@
 <meta property="og:title" content="Cosmica Shop — Explore the Universe from Your Shelf">
 <meta property="og:description" content="Hand-picked science books & gear from the Cosmica YouTube channel.">
 <meta property="og:site_name" content="Cosmica">
+<meta property="og:url" content="https://cosmicachannel-web.github.io/cosmica-shop/">
+<link rel="canonical" href="https://cosmicachannel-web.github.io/cosmica-shop/">
 <meta name="theme-color" content="#0A1628">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,7 +46,10 @@ header{position:sticky;top:0;z-index:40;background:rgba(10,22,40,.82);backdrop-f
 .hero{position:relative;padding:96px 0 120px;text-align:center;overflow:hidden}
 .hero-inner{position:relative;z-index:2;max-width:680px;margin:0 auto;padding:0 20px}
 .hero h1{font-size:clamp(2.1rem,5.5vw,3.4rem);font-weight:800;line-height:1.12;margin-bottom:18px}
-.hero h1 .glow{color:var(--teal)}
+.hero h1 .glow{background:linear-gradient(90deg,var(--teal),#7FD1FF);-webkit-background-clip:text;background-clip:text;color:var(--teal);-webkit-text-fill-color:transparent}
+.nebula{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;opacity:.35}
+.neb1{width:420px;height:420px;background:radial-gradient(circle,rgba(0,212,170,.35),transparent 70%);top:-120px;left:-100px}
+.neb2{width:380px;height:380px;background:radial-gradient(circle,rgba(245,166,35,.28),transparent 70%);bottom:-140px;right:-80px}
 .hero p{color:var(--text-dim);font-size:1.08rem;max-width:46ch;margin:0 auto 34px}
 .cta{display:inline-block;background:var(--amber);color:#1A1200;font-weight:700;font-size:1rem;padding:15px 34px;border-radius:999px;text-decoration:none;transition:transform .2s,box-shadow .2s}
 .cta:hover,.cta:focus-visible{transform:translateY(-3px);box-shadow:0 12px 30px -8px rgba(245,166,35,.5)}
@@ -77,7 +82,9 @@ header{position:sticky;top:0;z-index:40;background:rgba(10,22,40,.82);backdrop-f
 /* ---------- filter tabs ---------- */
 .shop{padding:10px 0 80px}
 .shop-title{text-align:center;font-weight:800;font-size:clamp(1.5rem,3.5vw,2.1rem);margin-bottom:8px}
-.shop-sub{text-align:center;color:var(--text-dim);font-size:.95rem;margin-bottom:34px}
+.shop-title::after{content:'';display:block;width:56px;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--teal),var(--amber));margin:14px auto 0}
+.shop-sub{text-align:center;color:var(--text-dim);font-size:.95rem;margin-bottom:10px}
+.mini-note{text-align:center;color:var(--text-dim);opacity:.85;font-size:.78rem;max-width:62ch;margin:0 auto 32px}
 .tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
 .tab{font:inherit;font-weight:600;font-size:.86rem;color:var(--text-dim);background:var(--navy-2);border:1px solid rgba(255,255,255,.08);padding:9px 20px;border-radius:999px;cursor:pointer;transition:all .2s}
 .tab:hover{color:var(--text);border-color:rgba(0,212,170,.5)}
@@ -87,10 +94,12 @@ header{position:sticky;top:0;z-index:40;background:rgba(10,22,40,.82);backdrop-f
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.grid{grid-template-columns:1fr}}
-.card{background:var(--navy-2);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .28s ease,box-shadow .28s ease,border-color .28s}
+.card{background:var(--navy-2);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .28s ease,box-shadow .28s ease,border-color .28s,opacity .5s ease}
+.card:not(.in){opacity:0;transform:translateY(16px)}
 .card:hover{transform:translateY(-6px);border-color:rgba(0,212,170,.55);box-shadow:0 16px 40px -12px rgba(0,212,170,.28)}
 .card-media{background:var(--navy-3);aspect-ratio:4/3;display:grid;place-items:center;position:relative;padding:22px}
-.card-media img{max-height:100%;object-fit:contain}
+.card-media img{max-height:100%;object-fit:contain;transition:transform .35s ease}
+.card:hover .card-media img{transform:scale(1.06)}
 .pill{position:absolute;top:14px;left:14px;background:rgba(0,212,170,.14);color:var(--teal);border:1px solid rgba(0,212,170,.45);font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
 .card-body{padding:20px;display:flex;flex-direction:column;flex:1}
 .card-title{font-weight:700;font-size:1.02rem;line-height:1.35;margin-bottom:8px}
@@ -128,6 +137,8 @@ footer{background:var(--navy-2);border-top:1px solid rgba(255,255,255,.07);paddi
 </header>
 
 <section class="hero" aria-label="Intro">
+  <div class="nebula neb1" aria-hidden="true"></div>
+  <div class="nebula neb2" aria-hidden="true"></div>
   <div class="stars" id="stars" aria-hidden="true"></div>
 
   <div class="orbit-sys" aria-hidden="true">
@@ -161,6 +172,7 @@ footer{background:var(--navy-2);border-top:1px solid rgba(255,255,255,.07);paddi
 <main class="shop wrap" id="shop">
   <h2 class="shop-title">The Cosmica Picks</h2>
   <p class="shop-sub">Every item below was featured or used on the channel.</p>
+  <p class="mini-note">The buttons below are Amazon affiliate links — as an Amazon Associate, Cosmica earns from qualifying purchases at no extra cost to you.</p>
 
   <div class="tabs" role="tablist" aria-label="Product categories" id="tabs"></div>
   <div class="grid" id="grid"></div>
@@ -255,6 +267,20 @@ function render(){
         <a class="card-btn" href="${esc(p.url)}" target="_blank" rel="sponsored noopener">View on Amazon →</a>
       </div>
     </article>`).join('');
+  observeCards();
+}
+
+/* scroll-reveal for cards (skipped for reduced motion) */
+const io = ('IntersectionObserver' in window) && !matchMedia('(prefers-reduced-motion: reduce)').matches
+  ? new IntersectionObserver(entries => entries.forEach(en => {
+      if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+    }), { threshold: .12 })
+  : null;
+function observeCards(){
+  const cards = document.querySelectorAll('.card:not(.in)');
+  cards.forEach(c => { if (io) io.observe(c); else c.classList.add('in'); });
+  /* safety net: never leave products hidden if the observer doesn't fire */
+  if (io) setTimeout(() => cards.forEach(c => c.classList.add('in')), 1800);
 }
 render();
 
