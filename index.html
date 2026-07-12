@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosmica Shop — Science Books & Gear from the Cosmica Channel</title>
+<meta name="description" content="Hand-picked science books, telescopes, and gear recommended by Cosmica (@CosmicaExplains). Explore the universe from your shelf.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cosmica Shop — Explore the Universe from Your Shelf">
+<meta property="og:description" content="Hand-picked science books & gear from the Cosmica YouTube channel.">
+<meta property="og:site_name" content="Cosmica">
+<meta name="theme-color" content="#0A1628">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1628;
+  --navy-2:#101E36;
+  --navy-3:#16264A;
+  --teal:#00D4AA;
+  --amber:#F5A623;
+  --text:#EAF2FF;
+  --text-dim:#9FB0CC;
+  --radius:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--text);font-family:'Poppins',system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:40;background:rgba(10,22,40,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+.wordmark{font-weight:800;font-size:1.25rem;letter-spacing:.22em;text-decoration:none;color:var(--text)}
+.wordmark span{color:var(--teal)}
+.nav a.yt{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600;color:var(--text-dim);text-decoration:none;transition:color .2s}
+.nav a.yt:hover,.nav a.yt:focus-visible{color:var(--teal)}
+.nav a.yt svg{flex:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:96px 0 120px;text-align:center;overflow:hidden}
+.hero-inner{position:relative;z-index:2;max-width:680px;margin:0 auto;padding:0 20px}
+.hero h1{font-size:clamp(2.1rem,5.5vw,3.4rem);font-weight:800;line-height:1.12;margin-bottom:18px}
+.hero h1 .glow{color:var(--teal)}
+.hero p{color:var(--text-dim);font-size:1.08rem;max-width:46ch;margin:0 auto 34px}
+.cta{display:inline-block;background:var(--amber);color:#1A1200;font-weight:700;font-size:1rem;padding:15px 34px;border-radius:999px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cta:hover,.cta:focus-visible{transform:translateY(-3px);box-shadow:0 12px 30px -8px rgba(245,166,35,.5)}
+
+/* starfield — 3 layers of box-shadow stars */
+.stars,.stars2,.stars3{position:absolute;inset:0;pointer-events:none}
+.stars{background:transparent}
+.star-dot{position:absolute;border-radius:50%;background:#fff}
+.twinkle{animation:twinkle 3.4s ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.25}50%{opacity:1}}
+/* orbit system */
+.orbit-sys{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:640px;height:640px;pointer-events:none;opacity:.55}
+.orbit{position:absolute;inset:0;border:1px dashed rgba(255,255,255,.1);border-radius:50%}
+.orbit.o2{inset:90px}
+.orbit.o3{inset:180px}
+.orbiter{position:absolute;top:50%;left:50%;width:100%;height:100%;transform:translate(-50%,-50%);animation:spin 26s linear infinite}
+.orbiter.slow{animation-duration:44s}
+.orbiter.rev{animation-direction:reverse;animation-duration:34s}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.planet{position:absolute;border-radius:50%}
+.p1{width:26px;height:26px;background:var(--teal);top:-13px;left:calc(50% - 13px);box-shadow:0 0 18px rgba(0,212,170,.6)}
+.p2{width:16px;height:16px;background:var(--amber);top:calc(50% - 8px);right:-8px;box-shadow:0 0 14px rgba(245,166,35,.6)}
+.p3{width:12px;height:12px;background:#7FD1FF;bottom:-6px;left:calc(50% - 6px)}
+.sun{position:absolute;top:50%;left:50%;width:54px;height:54px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 35% 35%,#FFD37A,var(--amber));box-shadow:0 0 44px rgba(245,166,35,.45)}
+/* floating geometric shapes */
+.float-shape{position:absolute;pointer-events:none;animation:floaty 7s ease-in-out infinite}
+.float-shape.d2{animation-delay:-2.5s;animation-duration:9s}
+.float-shape.d3{animation-delay:-5s;animation-duration:8s}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+
+/* ---------- filter tabs ---------- */
+.shop{padding:10px 0 80px}
+.shop-title{text-align:center;font-weight:800;font-size:clamp(1.5rem,3.5vw,2.1rem);margin-bottom:8px}
+.shop-sub{text-align:center;color:var(--text-dim);font-size:.95rem;margin-bottom:34px}
+.tabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.tab{font:inherit;font-weight:600;font-size:.86rem;color:var(--text-dim);background:var(--navy-2);border:1px solid rgba(255,255,255,.08);padding:9px 20px;border-radius:999px;cursor:pointer;transition:all .2s}
+.tab:hover{color:var(--text);border-color:rgba(0,212,170,.5)}
+.tab:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.tab.active{background:var(--teal);border-color:var(--teal);color:#03251D}
+
+/* ---------- product grid ---------- */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.card{background:var(--navy-2);border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .28s ease,box-shadow .28s ease,border-color .28s}
+.card:hover{transform:translateY(-6px);border-color:rgba(0,212,170,.55);box-shadow:0 16px 40px -12px rgba(0,212,170,.28)}
+.card-media{background:var(--navy-3);aspect-ratio:4/3;display:grid;place-items:center;position:relative;padding:22px}
+.card-media img{max-height:100%;object-fit:contain}
+.pill{position:absolute;top:14px;left:14px;background:rgba(0,212,170,.14);color:var(--teal);border:1px solid rgba(0,212,170,.45);font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.card-body{padding:20px;display:flex;flex-direction:column;flex:1}
+.card-title{font-weight:700;font-size:1.02rem;line-height:1.35;margin-bottom:8px}
+.card-blurb{color:var(--text-dim);font-size:.88rem;flex:1;margin-bottom:18px}
+.card-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--amber);color:#1A1200;font-weight:700;font-size:.9rem;padding:11px 18px;border-radius:12px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.card-btn:hover,.card-btn:focus-visible{transform:translateY(-2px);box-shadow:0 10px 24px -8px rgba(245,166,35,.5)}
+.empty{grid-column:1/-1;text-align:center;color:var(--text-dim);padding:50px 0}
+
+a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:6px}
+
+/* ---------- footer ---------- */
+footer{background:var(--navy-2);border-top:1px solid rgba(255,255,255,.07);padding:44px 0 30px;text-align:center}
+.disclosure{color:var(--text-dim);font-size:.86rem;max-width:60ch;margin:0 auto 18px}
+.foot-yt{display:inline-flex;align-items:center;gap:8px;color:var(--teal);font-weight:600;font-size:.92rem;text-decoration:none}
+.foot-yt:hover{text-decoration:underline}
+.copy{color:var(--text-dim);opacity:.65;font-size:.78rem;margin-top:22px}
+
+@media(prefers-reduced-motion:reduce){
+  .orbiter,.twinkle,.float-shape{animation:none!important}
+  *{transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="wordmark" href="#">COSMI<span>CA</span></a>
+    <a class="yt" href="https://youtube.com/@CosmicaExplains" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2s-.2-1.6-.9-2.3c-.9-.9-1.9-.9-2.3-1C16.6 3.5 12 3.5 12 3.5s-4.6 0-7.8.4c-.4.1-1.4.1-2.3 1-.7.7-.9 2.3-.9 2.3S.8 9.1.8 11v1.9c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.9.9 2 .9 2.5 1 1.8.2 7.6.4 7.6.4s4.6 0 7.8-.4c.4-.1 1.4-.1 2.3-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8V11c0-1.9-.2-3.8-.2-3.8zM9.8 14.9V8.6l6.1 3.2-6.1 3.1z"/></svg>
+      @CosmicaExplains
+    </a>
+  </div>
+</header>
+
+<section class="hero" aria-label="Intro">
+  <div class="stars" id="stars" aria-hidden="true"></div>
+
+  <div class="orbit-sys" aria-hidden="true">
+    <div class="sun"></div>
+    <div class="orbit"></div>
+    <div class="orbit o2"></div>
+    <div class="orbit o3"></div>
+    <div class="orbiter slow"><span class="planet p1"></span></div>
+    <div class="orbiter rev"><span class="planet p2"></span></div>
+    <div class="orbiter"><span class="planet p3"></span></div>
+  </div>
+
+  <svg class="float-shape" style="top:18%;left:8%" width="46" height="46" viewBox="0 0 46 46" aria-hidden="true">
+    <polygon points="23,4 42,40 4,40" fill="none" stroke="#00D4AA" stroke-width="2.5" stroke-linejoin="round" opacity=".5"/>
+  </svg>
+  <svg class="float-shape d2" style="top:26%;right:9%" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+    <circle cx="20" cy="20" r="15" fill="none" stroke="#F5A623" stroke-width="2.5" opacity=".5"/>
+    <ellipse cx="20" cy="20" rx="19" ry="6" fill="none" stroke="#F5A623" stroke-width="1.5" opacity=".4"/>
+  </svg>
+  <svg class="float-shape d3" style="bottom:14%;left:14%" width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+    <rect x="6" y="6" width="18" height="18" rx="4" fill="none" stroke="#7FD1FF" stroke-width="2.5" opacity=".4" transform="rotate(18 15 15)"/>
+  </svg>
+
+  <div class="hero-inner">
+    <h1>Explore the Universe <span class="glow">from Your Shelf</span></h1>
+    <p>Hand-picked science books &amp; gear from the Cosmica channel.</p>
+    <a class="cta" href="#shop">Browse the Picks ↓</a>
+  </div>
+</section>
+
+<main class="shop wrap" id="shop">
+  <h2 class="shop-title">The Cosmica Picks</h2>
+  <p class="shop-sub">Every item below was featured or used on the channel.</p>
+
+  <div class="tabs" role="tablist" aria-label="Product categories" id="tabs"></div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="disclosure">As an Amazon Associate, Cosmica earns from qualifying purchases. Buying through these links supports the channel at no extra cost to you.</p>
+    <a class="foot-yt" href="https://youtube.com/@CosmicaExplains" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2s-.2-1.6-.9-2.3c-.9-.9-1.9-.9-2.3-1C16.6 3.5 12 3.5 12 3.5s-4.6 0-7.8.4c-.4.1-1.4.1-2.3 1-.7.7-.9 2.3-.9 2.3S.8 9.1.8 11v1.9c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.9.9 2 .9 2.5 1 1.8.2 7.6.4 7.6.4s4.6 0 7.8-.4c.4-.1 1.4-.1 2.3-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8V11c0-1.9-.2-3.8-.2-3.8zM9.8 14.9V8.6l6.1 3.2-6.1 3.1z"/></svg>
+      Watch Cosmica on YouTube
+    </a>
+    <p class="copy" id="copy"></p>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   EDIT PRODUCTS HERE — this is the only thing you need to touch.
+   image: paste a direct image URL ("" shows a placeholder)
+   url:   paste your Amazon affiliate link (replace "#")
+   category must be one of: "Space & Astronomy", "Physics & Mind",
+   "Telescopes & Gear", "For Kids"
+   ============================================================ */
+const PRODUCTS = [
+  { title:"Cosmos by Carl Sagan",                       category:"Space & Astronomy", blurb:"The book that made millions fall in love with the universe — still unmatched.", image:"", url:"#" },
+  { title:"A Brief History of Time — Stephen Hawking",  category:"Physics & Mind",    blurb:"Black holes and the nature of time, explained for everyone.",                    image:"", url:"#" },
+  { title:"Astrophysics for People in a Hurry",         category:"Space & Astronomy", blurb:"Neil deGrasse Tyson's bite-sized tour of the cosmos — perfect for busy minds.",  image:"", url:"#" },
+  { title:"Celestron NexStar 130SLT Telescope",         category:"Telescopes & Gear", blurb:"Computerized go-to scope — the sweet spot between power and beginner-friendly.", image:"", url:"#" },
+  { title:"Celestron SkyMaster 15x70 Binoculars",       category:"Telescopes & Gear", blurb:"See Jupiter's moons for a fraction of a telescope's price.",                     image:"", url:"#" },
+  { title:"Thinking, Fast and Slow — Daniel Kahneman",  category:"Physics & Mind",    blurb:"How your brain actually makes decisions — a Cosmica favorite on the mind.",      image:"", url:"#" },
+  { title:"National Geographic Kids Space Encyclopedia",category:"For Kids",          blurb:"Stunning visuals that turn kids into little astronomers.",                       image:"", url:"#" },
+  { title:"LEGO Ideas NASA Apollo Saturn V",            category:"For Kids",          blurb:"1-meter-tall rocket build — as fun for adults as for kids.",                     image:"", url:"#" }
+];
+/* =================== no edits needed below =================== */
+
+const CATEGORIES = ["All","Space & Astronomy","Physics & Mind","Telescopes & Gear","For Kids"];
+const PLACEHOLDER = 'data:image/svg+xml,' + encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><rect width="400" height="300" fill="#16264A"/><circle cx="200" cy="130" r="42" fill="none" stroke="#00D4AA" stroke-width="3" opacity=".7"/><ellipse cx="200" cy="130" rx="66" ry="18" fill="none" stroke="#F5A623" stroke-width="2.5" opacity=".7"/><text x="200" y="228" font-family="Poppins,Arial" font-size="15" fill="#9FB0CC" text-anchor="middle">Product image</text></svg>');
+
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* starfield: generate ~90 twinkling dots */
+(function(){
+  const wrap = document.getElementById('stars');
+  let html = '';
+  for (let i = 0; i < 90; i++){
+    const size = Math.random() < .8 ? 2 : 3;
+    html += `<span class="star-dot twinkle" style="
+      left:${(Math.random()*100).toFixed(2)}%;
+      top:${(Math.random()*100).toFixed(2)}%;
+      width:${size}px;height:${size}px;
+      opacity:${(0.2+Math.random()*0.7).toFixed(2)};
+      animation-delay:${(Math.random()*4).toFixed(2)}s;
+      animation-duration:${(2.5+Math.random()*3).toFixed(2)}s;"></span>`;
+  }
+  wrap.innerHTML = html;
+})();
+
+/* tabs */
+let active = "All";
+const tabsEl = document.getElementById('tabs');
+tabsEl.innerHTML = CATEGORIES.map(c =>
+  `<button class="tab${c==='All'?' active':''}" role="tab" aria-selected="${c==='All'}" data-cat="${esc(c)}">${esc(c)}</button>`).join('');
+tabsEl.addEventListener('click', e => {
+  const b = e.target.closest('.tab'); if (!b) return;
+  tabsEl.querySelectorAll('.tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+  b.classList.add('active'); b.setAttribute('aria-selected','true');
+  active = b.dataset.cat;
+  render();
+});
+
+/* grid */
+function render(){
+  const list = active === "All" ? PRODUCTS : PRODUCTS.filter(p => p.category === active);
+  const grid = document.getElementById('grid');
+  if (!list.length){
+    grid.innerHTML = '<p class="empty">Nothing in this category yet — check back soon.</p>';
+    return;
+  }
+  grid.innerHTML = list.map(p => `
+    <article class="card">
+      <div class="card-media">
+        <span class="pill">${esc(p.category)}</span>
+        <img src="${esc(p.image) || PLACEHOLDER}" alt="${esc(p.title)}" loading="lazy" onerror="this.src='${PLACEHOLDER}'">
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">${esc(p.title)}</h3>
+        <p class="card-blurb">${esc(p.blurb)}</p>
+        <a class="card-btn" href="${esc(p.url)}" target="_blank" rel="sponsored noopener">View on Amazon →</a>
+      </div>
+    </article>`).join('');
+}
+render();
+
+document.getElementById('copy').textContent = '© ' + new Date().getFullYear() + ' Cosmica · All product names and images belong to their respective owners.';
+</script>
+</body>
+</html>
