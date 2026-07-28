@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Security hardening: restrict what the page may load / connect to -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://m.media-amazon.com; connect-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Cosmica Shop — Science Books & Gear from the Cosmica Channel</title>
 <meta name="description" content="Hand-picked science books, telescopes, and gear recommended by Cosmica (@CosmicaExplains). Explore the universe from your shelf.">
 <meta property="og:type" content="website">
